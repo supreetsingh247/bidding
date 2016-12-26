@@ -6,6 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 /**
  * Created by z001lfc on 12/25/16.
  */
-var TEST = exports.TEST = 'TEST';
+var SAVE_BIDS = exports.SAVE_BIDS = 'SAVE_BIDS';
 
 //# sourceMappingURL=actionTypes-compiled.js.map

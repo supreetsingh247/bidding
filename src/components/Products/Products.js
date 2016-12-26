@@ -13,7 +13,6 @@ class Products extends React.Component {
         this.state = {
         };
         const store = this.context.store;
-        //store.dispatch(loadAuthors());
     }
 
     render() {
@@ -33,12 +32,6 @@ Products.contextTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         products: state.products
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(productActions, dispatch)
     };
 }
 

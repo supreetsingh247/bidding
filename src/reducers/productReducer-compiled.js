@@ -25,7 +25,17 @@ function courseReducer() {
     var action = arguments[1];
 
     switch (action.type) {
-
+        case types.SAVE_BIDS:
+            var newState = Object.assign([], state);
+            var currentPrice = action.product.currentPrice;
+            for (var i = 0; i < newState.length; i++) {
+                if (newState[i].name == action.product.name) {
+                    if (parseInt(currentPrice) > parseInt(newState[i].currentPrice)) {
+                        newState[i] = Object.assign({}, newState[i], { "currentPrice": currentPrice });
+                    }
+                }
+            }
+            return newState;
         default:
             return state;
     }

@@ -30,6 +30,10 @@ var _ProductDescription = require('./ProductDescription');
 
 var _ProductDescription2 = _interopRequireDefault(_ProductDescription);
 
+var _productActions = require('../../actions/productActions');
+
+var productActions = _interopRequireWildcard(_productActions);
+
 var _iphone = require('../../resources/images/iphone7.png');
 
 var _iphone2 = _interopRequireDefault(_iphone);
@@ -37,6 +41,12 @@ var _iphone2 = _interopRequireDefault(_iphone);
 var _s7edge = require('../../resources/images/s7edge.png');
 
 var _s7edge2 = _interopRequireDefault(_s7edge);
+
+var _toastr = require('toastr');
+
+var _toastr2 = _interopRequireDefault(_toastr);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -80,18 +90,45 @@ var ProductDetails = _wrapComponent('ProductDetails')(function (_React$Component
 
         var _this = _possibleConstructorReturn(this, (ProductDetails.__proto__ || Object.getPrototypeOf(ProductDetails)).call(this, props, context));
 
-        _this.state = {};
+        _this.state = {
+            product: Object.assign({}, _this.props.product),
+            saving: false
+        };
         var store = _this.context.store;
+        _this.updateBid = _this.updateBid.bind(_this);
+        _this.saveBid = _this.saveBid.bind(_this);
         //store.dispatch(loadAuthors());
         return _this;
     }
 
     _createClass(ProductDetails, [{
+        key: 'updateBid',
+        value: function updateBid(event) {
+            var field = event.target.name;
+            var product = this.state.product;
+            product[field] = event.target.value;
+            return this.setState({ product: product });
+        }
+    }, {
+        key: 'saveBid',
+        value: function saveBid(event) {
+            console.log(event);
+            event.preventDefault();
+            this.props.actions.saveBids(this.state.product);
+            if (parseInt(this.props.product.currentPrice) < parseInt(this.state.product.currentPrice)) {
+                _toastr2.default.success('Bid Saved');
+            } else {
+                _toastr2.default.error('Bid amount should be more than the current price');
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
             var arr = void 0;
             return _react3.default.createElement(_ProductDescription2.default, {
-                product: this.props.product
+                product: this.props.product,
+                onSave: this.saveBid,
+                updateBid: this.updateBid
             });
         }
     }]);
@@ -122,6 +159,12 @@ function mapStateToProps(state, ownProps) {
     };
 }
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(ProductDetails);
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: (0, _redux.bindActionCreators)(productActions, dispatch)
+    };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ProductDetails);
 
 //# sourceMappingURL=ProductDetails-compiled.js.map

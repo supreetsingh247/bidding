@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 
 
-const Description = ({product}) => {
+const Description = ({product, onSave, updateBid}) => {
     return (
         <div>
             <div className="card" key={product.name} style={{width: 18 + 'rem'}}>
@@ -11,6 +11,22 @@ const Description = ({product}) => {
                     <h4 class="card-title">{product.name}</h4>
                     <h5>Minimum Price - {product.minimumPrice}</h5>
                     <h5>Current Price - {product.currentPrice}</h5>
+                </div>
+            </div>
+            <div className="card" style={{width: 18 + 'rem'}}>
+                <div class="card-block" style={{display:'inline'}}>
+                    <input
+                        type="text"
+                        name="currentPrice"
+                        onChange={updateBid}
+                        className="form-control"
+                        placeholder='Your bid amount'
+                        />
+                    <input
+                        type="submit"
+                        className="btn btn-primary"
+                        value={'Bid'}
+                        onClick={onSave}/>
                 </div>
             </div>
         </div>

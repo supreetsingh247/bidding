@@ -88,7 +88,6 @@ var Products = _wrapComponent('Products')(function (_React$Component) {
 
         _this.state = {};
         var store = _this.context.store;
-        //store.dispatch(loadAuthors());
         return _this;
     }
 
@@ -112,12 +111,6 @@ Products.contextTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         products: state.products
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: (0, _redux.bindActionCreators)(productActions, dispatch)
     };
 }
 

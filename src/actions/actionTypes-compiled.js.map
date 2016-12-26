@@ -1,1 +1,1 @@
-{"version":3,"sources":["actionTypes.js"],"names":[],"mappings":";;;;;AAAA;;;AAGO,IAAM,sBAAM,MAAZ","file":"actionTypes-compiled.js","sourcesContent":["/**\n * Created by z001lfc on 12/25/16.\n */\nexport const TEST ='TEST';\n"]}
+{"version":3,"sources":["actionTypes.js"],"names":[],"mappings":";;;;;AAAA;;;AAGO,IAAM,gCAAW,WAAjB","file":"actionTypes-compiled.js","sourcesContent":["/**\n * Created by z001lfc on 12/25/16.\n */\nexport const SAVE_BIDS ='SAVE_BIDS';\n"]}
