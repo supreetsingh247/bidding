@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import ProductDescription from './ProductDescription';
-import * as productActions from '../../actions/productActions';
+import  {saveBids} from '../../actions/productActions';
 import iphone from '../../resources/images/iphone7.png';
 import galaxy from '../../resources/images/s7edge.png';
 import toastr from 'toastr';
@@ -75,7 +75,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(productActions, dispatch)
+        actions: bindActionCreators({saveBids}, dispatch)
     };
 }
 

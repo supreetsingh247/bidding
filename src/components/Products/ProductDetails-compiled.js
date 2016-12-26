@@ -32,8 +32,6 @@ var _ProductDescription2 = _interopRequireDefault(_ProductDescription);
 
 var _productActions = require('../../actions/productActions');
 
-var productActions = _interopRequireWildcard(_productActions);
-
 var _iphone = require('../../resources/images/iphone7.png');
 
 var _iphone2 = _interopRequireDefault(_iphone);
@@ -45,8 +43,6 @@ var _s7edge2 = _interopRequireDefault(_s7edge);
 var _toastr = require('toastr');
 
 var _toastr2 = _interopRequireDefault(_toastr);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -161,7 +157,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: (0, _redux.bindActionCreators)(productActions, dispatch)
+        actions: (0, _redux.bindActionCreators)({ saveBids: _productActions.saveBids }, dispatch)
     };
 }
 

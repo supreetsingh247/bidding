@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = courseReducer;
+exports.default = productReducer;
 
 var _actionTypes = require('../actions/actionTypes');
 
@@ -20,7 +20,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 /**
  * Created by z001lfc on 12/25/16.
  */
-function courseReducer() {
+function productReducer() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _initialState2.default.products;
     var action = arguments[1];
 
